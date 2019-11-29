@@ -20,3 +20,11 @@
 .App-link {
   color: #09d3ac;
 }
+tr:nth-child(odd) {
+  background-color: #57adf2;}
+tr:nth-child(even) {
+  background-color: #d89bf2;}
+
+th{
+  background-color: #D89BF2;
+}
