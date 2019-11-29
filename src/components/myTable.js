@@ -9,7 +9,7 @@ class MyTable extends  Component{
 			this.state ={
 				search:props.search,
 				list:[],
-				keys:[],
+				vals:[],
 				compiledTable:` <table style="width:100%">
 								  <tr>
 									<th>Firstname</th>
@@ -26,7 +26,7 @@ class MyTable extends  Component{
 				let theList = this.objToArray(data);
 				this.setState({
 					list: theList,
-					keys: Object.keys(data[0])
+					vals: Object.keys(data[0])
 				})
 				console.log(theList);
 			})
@@ -45,21 +45,28 @@ class MyTable extends  Component{
 	}
 
 	renderCol(col) {
-	 	return <td>{col}</td>
+		return <td>{col}</td>
 	}
 
 	renderItem(item) {
 		return <tr>{item.map(this.renderCol)}</tr>
+	}
+	renderHead(item) {
+		return <th>{item}</th>
 	}
 
 	render() {
 		console.log(this.state.compiledTable);
 		return(
 			<table>
+				<thead id="theHead">
+					<tr>
+						{this.state.vals.map(this.renderHead.bind(this))}
+					</tr>
+				</thead>
 				<tbody id="theBod">
 				{this.state.list.map(this.renderItem.bind(this))}
 				</tbody>
-
 			</table>
 		)
 	}
