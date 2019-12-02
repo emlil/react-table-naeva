@@ -69,7 +69,7 @@ class MyTable extends  Component{
 
 	render() {
 		return(
-			<table>
+			<table id={"inf"}>
 				<thead id="theHead">
 					<tr>
 						{this.state.vals.map(this.renderHead.bind(this))}

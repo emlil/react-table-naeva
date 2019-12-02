@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: lightblue;
 }
 
 .App-logo {
@@ -28,3 +29,11 @@ tr:nth-child(even) {
 th{
   background-color: #D89BF2;
 }
+
+#inf{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
+}
+
