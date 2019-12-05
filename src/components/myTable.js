@@ -1,22 +1,6 @@
 import  React, {Component} from "react"
-import ReactDOM from 'react-dom';
+import utils from "../utils"
 
-const sortTypes = {
-	up: {
-		class: 'sort-up',
-		fn: (a, b) => a.net_worth - b.net_worth
-	},
-	down: {
-		class: 'sort-down',
-		fn: (a, b) => b.net_worth - a.net_worth
-	},
-	default: {
-		class: 'sort',
-		fn: (a, b) => a
-	}
-};
-
-const apiUrl= "http://www.omdbapi.com/?apikey=4486ae48&s=";
 
 class MyTable extends  Component{
 	 constructor(props){
@@ -25,12 +9,10 @@ class MyTable extends  Component{
 				search:props.search,
 				list:[],
 				vals:[],
-				currentsort:'default',
-				compiledTable:[]
 			}
 	}
 	componentDidMount() {
-		this.getDataFromApi(this.state.search)
+		utils.getDataFromApi(this.state.search)
 			.then(data => {
 				let theList = this.objToArray(data);
 				this.setState({
@@ -45,12 +27,7 @@ class MyTable extends  Component{
 		return arr.map(x=>Object.values(x))
 	}
 
-	async getDataFromApi(name) {
-		var data = await fetch(apiUrl+name)
-			.then(response => response.json())
-			.then(response =>response.Search);
-		return data;
-	}
+
 
 	renderCol(col) {
 		if(col.includes(".jpg"))
