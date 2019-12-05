@@ -1,4 +1,5 @@
 import  React, {Component} from "react"
+import app from "../App";
 
 
 class MyTable extends  Component{
@@ -7,28 +8,31 @@ class MyTable extends  Component{
 	}
 
 	renderCol(col) {
-		if(col.includes(".jpg"))
+	 	// alt egenskapen til img håndterer tilfellene hvor det faktisk bare er en tekststreng som inneholder .jpg
+		if(col.toLowerCase().includes(".jpg"))
 			return <td><img src={col} alt={col} /></td>;
 		return <td>{col}</td>
 	}
 
 	renderItem(item) {
-
 		return <tr>{item.map(this.renderCol)}</tr>
 	}
-	renderHead(item) {
-
-		return <th onClick={}>{item}</th>
+	renderHead(item, index) {
+	 	//var valList = this.state.elem.vals;
+	 	//console.log(valList.indexOf({item}));
+		return <th  onClick={()=>(this.props.onSort(index))}>{item}</th>
 	}
 
+
+
 	render() {
-	 	console.log("Props", this.props.elem );
+	 	//console.log("Props", this.props.elem );
 
 	 	if(this.props.elem === undefined || this.props.elem.list === undefined)
 	 		return (<p>No data to show</p>);
 	 	// Check if no data
 		if(!this.props.elem || Object.keys(this.props.elem).length === 0) return (<p>Loading...</p>);
-
+		//console.log("vals",this.props.elem.vals);
 		return(
 			<table id={"inf"}>
 				<thead id="theHead">
