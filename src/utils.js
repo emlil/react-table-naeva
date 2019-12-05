@@ -1,14 +1,14 @@
 import React, {Component} from "react";
 
-const apiUrl= "http://www.omdbapi.com/?apikey=4486ae48&s=";
+const apiUrl = "http://www.omdbapi.com/?apikey=4486ae48&s=";
 
 
-class utils	extends Component{
+class utils extends Component {
 
 	static async getMovieList(search) {
 		// If it errors, handle it properly!
 		let data = await utils.getDataFromApi(search);
-		if(data === undefined)
+		if (data === undefined)
 			return undefined;
 		console.log("data", data);
 		return {
@@ -18,7 +18,7 @@ class utils	extends Component{
 	}
 
 	static objToArray(arr) {
-		return arr.map(x=>Object.values(x))
+		return arr.map(x => Object.values(x))
 	}
 
 	static async getDataFromApi(name) {
