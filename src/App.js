@@ -4,34 +4,44 @@ import MyTable from './components/myTable';
 import utils from "./utils"
 
 class App extends React.Component {
-    
+
     state = {
         list: []
     };
      sortByCol(index){
          let copy = [...this.state.list.list];
-         // const isSorted = arr => arr.every((v,i,a) => !i || a[i-1] <= v);
-         // if(isSorted(copy[)){
-         //     console.log("sortert");
-         //    return;
-         // }
-         console.log("SORT", copy);
-         copy.sort((a,b)=>{
-             if (a[index]<b[index])
-                 return -1;
-             if (a[index]>b[index])
-                 return 1;
-             else return 0;
+         if(this.state.list.sortBy===index){
+             console.log("reverse"+index+this.state.list.sortBy);
+             this.setState({
+                 list:{
+                     list:copy.reverse(),
+                     vals: this.state.list.vals,
+                     sortBy: index
+                 }
+             })
 
-        });
-         this.setState({
-             list:{
-                 list:copy,
-                 vals: this.state.list.vals
-             }
-         });
+         }
 
+        else {
+             console.log("SORT", copy);
+             copy.sort((a, b) => {
+                 if (a[index] < b[index])
+                     return -1;
+                 if (a[index] > b[index])
+                     return 1;
+                 else return 0;
+
+             });
+             this.setState({
+                 list: {
+                     list: copy,
+                     vals: this.state.list.vals,
+                     sortBy: index
+                 }
+             });
+         }
     }
+
     async componentDidMount() {
         let list = await utils.getMovieList("Rush+Hour");
         this.setState({list});
