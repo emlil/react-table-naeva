@@ -1,9 +1,16 @@
 import React, {Component} from "react";
 
-const apiUrl = "http://www.omdbapi.com/?apikey=4486ae48&s=";
+const apiUrl = "http://www.omdbapi.com/?apikey=4486ae48&";
 
 
 class utils extends Component {
+
+	static async getDistinctmovie(key){
+		let data = await fetch(apiUrl+"t="+key);
+		let json = await data.json();
+
+		return json;
+	}
 
 	static async getMovieList(search) {
 		// If it errors, handle it properly!
@@ -22,11 +29,13 @@ class utils extends Component {
 	}
 
 	static async getDataFromApi(name) {
-		let response = await fetch(apiUrl + name);
+		let response = await fetch(apiUrl+"s="+ name);
 		let json = await response.json();
 		return json.Search;
 	}
 
+
 }
+
 
 export default utils;

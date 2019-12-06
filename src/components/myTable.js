@@ -15,7 +15,7 @@ class MyTable extends Component {
 	}
 
 	renderItem(item) {
-		return <tr>{item.map(this.renderCol)}</tr>
+		return <tr onClick={()=>(this.props.moreInfo(item[2]))}>{item.map(this.renderCol)}</tr>
 	}
 
 	renderHead(item, index) {
