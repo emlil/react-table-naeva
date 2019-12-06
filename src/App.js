@@ -75,7 +75,7 @@ class App extends React.Component {
 			<div className="App">
 				<header>Test</header>
 				<div id="modalDiv">
-					<MyModal elem={this.state.modalData} show={this.state.showModal} />
+					<MyModal elem={this.state.modalData} show={this.state.showModal} onClose={()=>this.setState({showModal:false})} />
 				</div>
 				<div>
 					<p>Search for a movie: </p>

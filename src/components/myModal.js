@@ -1,6 +1,7 @@
-import React, {Component} from "react"
+import React, {Component, useState} from "react"
 import Modal from 'react-bootstrap/Modal'
 import Button from "react-bootstrap/Button";
+
 
 
 
@@ -8,25 +9,14 @@ class myModal extends React.Component{
 
 	constructor(props){
 		super(props);
-			this.setState(
-				{
-					visible:false
-				}
-			)
-	}
-	componentDidMount() {
-		this.state={
-			visible:this.props.showModal
-		}
-		console.log(this.state.visible);
 	}
 
 	closeModal(){
-		console.log("foo")
-	let elem=document.getElementById("theModal");
-	elem.show= false;
-
+		if(!this.props.onClose) return;
+		this.props.onClose();
+		//this.props.show=false;
 	}
+
 	render() {
 		if(!this.props.show){
 			return null;
@@ -34,9 +24,10 @@ class myModal extends React.Component{
 		let data = this.props.elem;
 
 		return (
-			<Modal id="theModal" show={true}>
+			<Modal id="theModal" show={true}
+			onHide={()=>this.closeModal()}>
 				<Modal.Dialog>
-					<Modal.Header closeButton={()=>this.closeModal()}>
+					<Modal.Header closeButton={ () => this.closeModal()}>
 						<Modal.Title>{data.Title}</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
@@ -51,7 +42,7 @@ class myModal extends React.Component{
 					</Modal.Body>
 					<Modal.Footer>
 
-						<Button variant="primary" data-dismiss="modal" onClick={this.closeModal}>
+						<Button variant="primary" data-dismiss="modal" onClick={() => this.closeModal()}>
 							Close
 						</Button>
 					</Modal.Footer>
@@ -59,6 +50,5 @@ class myModal extends React.Component{
 			</Modal>
 		)
 	}
-
 }
 export default myModal

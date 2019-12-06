@@ -19,8 +19,6 @@ class MyTable extends Component {
 	}
 
 	renderHead(item, index) {
-		//var valList = this.state.elem.vals;
-		//console.log(valList.indexOf({item}));
 		return <th onClick={() => (this.props.onSort(index))}>{item}</th>
 	}
 
