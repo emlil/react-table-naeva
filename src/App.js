@@ -4,8 +4,7 @@ import MyTable from './components/myTable';
 import utils from "./utils"
 import Modal from 'react-bootstrap/Modal'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ModalHeader from "react-bootstrap/ModalHeader";
-import ModalTitle from "react-bootstrap/ModalTitle";
+import MyModal from './components/myModal'
 
 
 class App extends React.Component {
@@ -15,34 +14,14 @@ class App extends React.Component {
 		showModal: false,
 		modalData: {}
 	};
-
-	async createModal(item){
+	async updateModal(item){
 		let data = await utils.getDistinctmovie(item);
-		const mod =
-			<Modal show={true}>
-			<Modal.Dialog>
-				<ModalHeader closeButton={()=>this.closeModal()}>
-					<ModalTitle>{data.Title}</ModalTitle>
-				</ModalHeader>
-				<Modal.Body>
-					<div>
-						<li>Year: {data.Year}</li>
-						<li>Rated: {data.Rated}</li>
-						<li>Runtime:{data.Runtime} </li>
-					</div>
-					<div>
-						<p>{data.Plot}</p>
-					</div>
-				</Modal.Body>
-
-			</Modal.Dialog>;
-			</Modal>;
-		document.getElementById("modalDiv").innerText=mod;
-
-		this.state.modalData= mod;
-		this.state.showModal= true;
-
+		this.setState({
+			modalData:data,
+			showModal:true
+		});
 	}
+
 	closeModal(){
 		this.setState(
 			{
@@ -102,13 +81,11 @@ class App extends React.Component {
 	}
 
 	render() {
-		return (
+			return (
 			<div className="App">
 				<header>Test</header>
 				<div id="modalDiv">
-					{()=>{
-						if 
-					}}
+					<MyModal elem={this.state.modalData} show={this.state.showModal} />
 				</div>
 				<div>
 					<p>Search for a movie: </p>
@@ -117,7 +94,7 @@ class App extends React.Component {
 				</div>
 				<div>
 					<div id="leftPart"></div>
-					<MyTable elem={this.state.list} onSort={this.sortByCol.bind(this)} moreInfo={this.createModal.bind(this)}/>
+					<MyTable elem={this.state.list} onSort={this.sortByCol.bind(this)} moreInfo={this.updateModal.bind(this)}/>
 					<div id="rightPart"></div>
 				</div>
 			</div>

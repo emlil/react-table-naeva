@@ -6,7 +6,9 @@ const apiUrl = "http://www.omdbapi.com/?apikey=4486ae48&";
 class utils extends Component {
 
 	static async getDistinctmovie(key){
-		let data = await fetch(apiUrl+"t="+key);
+		let src=apiUrl+"i="+key;
+		console.log("key",src);
+		let data = await fetch(src);
 		let json = await data.json();
 
 		return json;
