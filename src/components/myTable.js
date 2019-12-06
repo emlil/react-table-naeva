@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 import app from "../App";
+import Table from "react-bootstrap/Table";
+import Image from "react-bootstrap/Image";
 
 
 class MyTable extends Component {
@@ -10,7 +12,7 @@ class MyTable extends Component {
 	renderCol(col) {
 		// alt egenskapen til img håndterer tilfellene hvor det faktisk bare er en tekststreng som inneholder .jpg
 		if (col.toLowerCase().includes(".jpg"))
-			return <td><img src={col} alt={col}/></td>;
+			return <td><Image rounded src={col} alt={col}/></td>;
 		return <td>{col}</td>
 	}
 
@@ -27,12 +29,12 @@ class MyTable extends Component {
 		//console.log("Props", this.props.elem );
 
 		if (this.props.elem === undefined || this.props.elem.list === undefined)
-			return (<p>No data to show</p>);
+			return null;
 		// Check if no data
 		if (!this.props.elem || Object.keys(this.props.elem).length === 0) return (<p>Loading...</p>);
 		//console.log("vals",this.props.elem.vals);
 		return (
-			<table id={"inf"}>
+			<Table striped hover variant="dark" id={"inf"}>
 				<thead id="theHead">
 				<tr>
 					{this.props.elem.vals.map(this.renderHead.bind(this))}
@@ -41,7 +43,7 @@ class MyTable extends Component {
 				<tbody id="theBod">
 				{this.props.elem.list.map(this.renderItem.bind(this))}
 				</tbody>
-			</table>
+			</Table>
 		)
 	}
 }

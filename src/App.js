@@ -2,9 +2,11 @@ import React from 'react';
 import './App.css';
 import MyTable from './components/myTable';
 import utils from "./utils"
-import Modal from 'react-bootstrap/Modal'
+import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyModal from './components/myModal'
+import Container from "react-bootstrap/esm/Container";
+import Row from "react-bootstrap/Row";
 
 
 class App extends React.Component {
@@ -14,14 +16,14 @@ class App extends React.Component {
 		showModal: false,
 		modalData: {}
 	};
-	async updateModal(item){
+
+	async updateModal(item) {
 		let data = await utils.getDistinctmovie(item);
 		this.setState({
-			modalData:data,
-			showModal:true
+			modalData: data,
+			showModal: true
 		});
 	}
-
 
 
 	sortByCol(index) {
@@ -71,20 +73,22 @@ class App extends React.Component {
 	}
 
 	render() {
-			return (
+		return (
 			<div className="App">
-				<header>Test</header>
+				<header><h1>OmdbAPI GUI</h1></header>
 				<div id="modalDiv">
-					<MyModal elem={this.state.modalData} show={this.state.showModal} onClose={()=>this.setState({showModal:false})} />
+					<MyModal elem={this.state.modalData} show={this.state.showModal}
+							 onClose={() => this.setState({showModal: false})}/>
 				</div>
 				<div>
 					<p>Search for a movie: </p>
 					<input id={"input"} defaultValue="titanic"/>
-					<button onClick={() => this.search()}>Søk</button>
+					<Button variant="light" onClick={() => this.search()}>Søk</Button>
 				</div>
 				<div>
 					<div id="leftPart"></div>
-					<MyTable elem={this.state.list} onSort={this.sortByCol.bind(this)} moreInfo={this.updateModal.bind(this)}/>
+					<MyTable elem={this.state.list} onSort={this.sortByCol.bind(this)}
+							 moreInfo={this.updateModal.bind(this)}/>
 					<div id="rightPart"></div>
 				</div>
 			</div>

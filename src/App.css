@@ -1,6 +1,9 @@
 .App {
   text-align: center;
-  background-color: lightblue;
+  background-color: lightslategray;
+}
+html{
+  background-color: lightslategray;
 }
 
 .App-logo {
@@ -21,18 +24,18 @@
 .App-link {
   color: #09d3ac;
 }
-tr:nth-child(odd) {
-  background-color: #57adf2;}
-tr:nth-child(even) {
-  background-color: #d89bf2;}
+/*tr:nth-child(odd) {*/
+/*  background-color: #7f9dab;}*/
+/*tr:nth-child(even) {*/
+/*  background-color: lightblue;}*/
 
-th{
-  background-color: #D89BF2;
-}
+/*th{*/
+/*  background-color: lightblue;*/
+/*}*/
 
-#inf{
-  margin-left: auto;
-  margin-right: auto;
-  width:90%;
-}
+/*#inf{*/
+/*  margin-left: auto;*/
+/*  margin-right: auto;*/
+/*  width:90%;*/
+/*}*/
 
