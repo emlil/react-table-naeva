@@ -80,7 +80,7 @@ class App extends React.Component {
 					<MyModal elem={this.state.modalData} show={this.state.showModal}
 							 onClose={() => this.setState({showModal: false})}/>
 				</div>
-				<div>
+				<div id="inputDiv">
 					<p>Search for a movie: </p>
 					<input id={"input"} defaultValue="titanic"/>
 					<Button variant="light" onClick={() => this.search()}>Søk</Button>

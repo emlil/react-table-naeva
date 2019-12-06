@@ -29,13 +29,19 @@ html{
 /*tr:nth-child(even) {*/
 /*  background-color: lightblue;}*/
 
-/*th{*/
-/*  background-color: lightblue;*/
-/*}*/
+/*{thead,tr,th,table{*/
+/*  border-radius: 10px;*/
+/*}}*/
 
-/*#inf{*/
-/*  margin-left: auto;*/
-/*  margin-right: auto;*/
-/*  width:90%;*/
-/*}*/
+
+#inputDiv{
+  padding-bottom: 20px;
+}
+#inf{
+  padding-top: 30px;
+  border-color: transparent;
+  margin-left: auto;
+  margin-right: auto;
+  width:90%;
+}
 
