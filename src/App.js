@@ -22,17 +22,7 @@ class App extends React.Component {
 		});
 	}
 
-	closeModal(){
-		this.setState(
-			{
-				modalData:{},
-				showModal:false
-			}
-		);
-		// this.state.modalData={};
-		// this.state.showModal= false;
 
-	}
 
 	sortByCol(index) {
 		let copy = [...this.state.list.list];
