@@ -7,7 +7,6 @@ class utils extends Component {
 
 	static async getDistinctmovie(key){
 		let src=apiUrl+"i="+key+"&plot=full";
-		console.log("key",src);
 		let data = await fetch(src);
 		let json = await data.json();
 
@@ -19,7 +18,6 @@ class utils extends Component {
 		let data = await utils.getDataFromApi(search);
 		if (data === undefined)
 			return undefined;
-		console.log("data", data);
 		return {
 			list: this.objToArray(data),
 			vals: Object.keys(data[0])

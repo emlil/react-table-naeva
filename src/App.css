@@ -1,47 +1,53 @@
 .App {
-  text-align: center;
-  background-color: lightslategray;
+    text-align: center;
+    background-color: lightslategray;
 }
-html{
-  background-color: lightslategray;
+
+html {
+    background-color: lightslategray;
 }
 
 .App-logo {
-  height: 40vmin;
+    height: 40vmin;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #09d3ac;
+    color: #09d3ac;
 }
-/*tr:nth-child(odd) {*/
-/*  background-color: #7f9dab;}*/
-/*tr:nth-child(even) {*/
-/*  background-color: lightblue;}*/
 
-/*{thead,tr,th,table{*/
-/*  border-radius: 10px;*/
-/*}}*/
-
-
-#inputDiv{
-  padding-bottom: 20px;
+th:hover {
+    background-color: lightslategray;
+    border-radius: 40px;
+    border-width: 20px;
 }
-#inf{
-  padding-top: 30px;
-  border-color: transparent;
-  margin-left: auto;
-  margin-right: auto;
-  width:90%;
+
+
+#inputDiv {
+    padding-bottom: 20px;
+}
+
+#inf {
+    border-color: transparent;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.thumb {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;;
 }
 

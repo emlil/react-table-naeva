@@ -10,9 +10,9 @@ class MyTable extends Component {
 	}
 
 	renderCol(col) {
-		// alt egenskapen til img håndterer tilfellene hvor det faktisk bare er en tekststreng som inneholder .jpg
+		// alt egenskapen til img håndterer tilfellene hvor det faktisk bare er en tekststreng som inneholder ".jpg"
 		if (col.toLowerCase().includes(".jpg"))
-			return <td><Image rounded src={col} alt={col}/></td>;
+			return <td><Image className={"thumb"} src={col} alt={col}/></td>;
 		return <td>{col}</td>
 	}
 
@@ -26,13 +26,11 @@ class MyTable extends Component {
 
 
 	render() {
-		//console.log("Props", this.props.elem );
 
 		if (this.props.elem === undefined || this.props.elem.list === undefined)
 			return null;
 		// Check if no data
 		if (!this.props.elem || Object.keys(this.props.elem).length === 0) return (<p>Loading...</p>);
-		//console.log("vals",this.props.elem.vals);
 		return (
 			<Table striped hover variant="dark" id={"inf"}>
 				<thead id="theHead">

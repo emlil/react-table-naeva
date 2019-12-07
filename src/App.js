@@ -5,8 +5,6 @@ import utils from "./utils"
 import Button from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyModal from './components/myModal'
-import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/Row";
 
 
 class App extends React.Component {
@@ -25,11 +23,9 @@ class App extends React.Component {
 		});
 	}
 
-
 	sortByCol(index) {
 		let copy = [...this.state.list.list];
 		if (this.state.list.sortBy === index) {
-			console.log("reverse" + index + this.state.list.sortBy);
 			this.setState({
 				list: {
 					list: copy.reverse(),
@@ -39,7 +35,6 @@ class App extends React.Component {
 			})
 
 		} else {
-			console.log("SORT", copy);
 			copy.sort((a, b) => {
 				if (a[index] < b[index])
 					return -1;
@@ -58,17 +53,10 @@ class App extends React.Component {
 		}
 	}
 
-	async componentDidMount() {
-
-		// let list = await utils.getMovieList("Rush+Hour");
-		// this.setState({list});
-	}
-
 	async search() {
 		this.setState({list: {}});
 		let x = document.getElementById("input").value;
 		let list = await utils.getMovieList(x.replace(" ", "+"));
-		console.log("søk", list);
 		this.setState({list});
 	}
 

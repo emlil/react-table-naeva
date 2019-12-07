@@ -29,7 +29,6 @@ class myModal extends React.Component{
 		return (
 			<Modal id="theModal" show={true}
 			onHide={()=>this.closeModal()} animation={true} size={"lg"}>
-
 					<Modal.Header closeButton={ () => this.closeModal()}>
 						<Modal.Title><h2>{data.Title}</h2></Modal.Title>
 					</Modal.Header>
@@ -41,6 +40,7 @@ class myModal extends React.Component{
 										<li>Year: {data.Year}</li>
 										<li>Rated: {data.Rated}</li>
 										<li>Runtime: {data.Runtime} </li>
+										<li>Awards: {data.Awards}</li>
 									</div>
 								</Col>
 								<Col>
